@@ -1,0 +1,848 @@
+<title>Novedades LSM</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Lato:wght@400;600;700&display=swap">
+
+<style>
+:root {
+  --bg: #F5F3EF;
+  --surface: #FFFFFF;
+  --text: #1C1917;
+  --muted: #78716C;
+  --border: #E7E4DF;
+  --agosto: #C2410C;
+  --septiembre: #166534;
+  --cat-ofertas-bg: #FFF7ED;
+  --cat-ofertas-text: #9A3412;
+  --cat-tips-bg: #F0FDF4;
+  --cat-tips-text: #14532D;
+  --cat-temporadas-bg: #F5F3FF;
+  --cat-temporadas-text: #5B21B6;
+  --badge-foto-bg: #EFF6FF;
+  --badge-foto-text: #1D4ED8;
+  --badge-diseno-bg: #FDF2F8;
+  --badge-diseno-text: #9D174D;
+  --field-label-color: #A8A29E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1917;
+    --surface: #252220;
+    --text: #F5F5F4;
+    --muted: #A8A29E;
+    --border: #383432;
+    --agosto: #EA580C;
+    --septiembre: #16A34A;
+    --cat-ofertas-bg: #431407;
+    --cat-ofertas-text: #FED7AA;
+    --cat-tips-bg: #052E16;
+    --cat-tips-text: #BBF7D0;
+    --cat-temporadas-bg: #2E1065;
+    --cat-temporadas-text: #DDD6FE;
+    --badge-foto-bg: #1E3058;
+    --badge-foto-text: #BFDBFE;
+    --badge-diseno-bg: #500724;
+    --badge-diseno-text: #FBCFE8;
+    --field-label-color: #6B6560;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1A1917;
+  --surface: #252220;
+  --text: #F5F5F4;
+  --muted: #A8A29E;
+  --border: #383432;
+  --agosto: #EA580C;
+  --septiembre: #16A34A;
+  --cat-ofertas-bg: #431407;
+  --cat-ofertas-text: #FED7AA;
+  --cat-tips-bg: #052E16;
+  --cat-tips-text: #BBF7D0;
+  --cat-temporadas-bg: #2E1065;
+  --cat-temporadas-text: #DDD6FE;
+  --badge-foto-bg: #1E3058;
+  --badge-foto-text: #BFDBFE;
+  --badge-diseno-bg: #500724;
+  --badge-diseno-text: #FBCFE8;
+  --field-label-color: #6B6560;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  padding: 64px 32px 120px;
+}
+
+.page-header {
+  max-width: 1320px;
+  margin: 0 auto 64px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.page-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.page-meta {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.block {
+  max-width: 1320px;
+  margin: 0 auto 96px;
+}
+
+.block--agosto     { --accent: var(--agosto); }
+.block--septiembre { --accent: var(--septiembre); }
+
+.block-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.block-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.block-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.block-tagline {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 860px) {
+  .cards-grid { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-meta {
+  padding: 18px 26px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cat-pill {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 99px;
+  line-height: 1.4;
+}
+
+.cat-pill--ofertas    { background: var(--cat-ofertas-bg);    color: var(--cat-ofertas-text); }
+.cat-pill--tips       { background: var(--cat-tips-bg);       color: var(--cat-tips-text); }
+.cat-pill--temporadas { background: var(--cat-temporadas-bg); color: var(--cat-temporadas-text); }
+
+.card-id {
+  margin-left: auto;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 22px 26px 0;
+  text-wrap: balance;
+}
+
+.card-fields {
+  padding: 20px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+}
+
+.field-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--field-label-color);
+  margin-bottom: 8px;
+}
+
+.field-text {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.field-text p + p { margin-top: 9px; }
+
+.image-block {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+.img-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.img-badge--foto   { background: var(--badge-foto-bg);   color: var(--badge-foto-text); }
+.img-badge--diseno { background: var(--badge-diseno-bg); color: var(--badge-diseno-text); }
+
+.img-desc {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.field-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.field-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.field-list li {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--text);
+  padding-left: 16px;
+  position: relative;
+}
+
+.field-list li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.list-group-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 12px;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.list-group-label:first-of-type { margin-top: 8px; }
+
+.cta-block {
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.cta-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--field-label-color);
+  min-width: 84px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.cta-value {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.cta-value a {
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.cta-value a:hover { text-decoration: underline; }
+
+.cta-note {
+  font-size: 13.5px;
+  color: var(--muted);
+  font-style: italic;
+}
+</style>
+
+<header class="page-header">
+  <p class="page-eyebrow">La Subasta Mueblerias</p>
+  <h1 class="page-title">Novedades</h1>
+  <p class="page-meta">8 tarjetas &mdash; Bloque Agosto y Bloque Septiembre &mdash; Septiembre 2026</p>
+</header>
+
+<!-- BLOQUE AGOSTO -->
+<section class="block block--agosto">
+
+  <div class="block-header">
+    <p class="block-label">Bloque 1</p>
+    <h2 class="block-title">Spot Agosto</h2>
+    <p class="block-tagline">"Te esta dando en la madre el calor?"</p>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- A1 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--ofertas">Ofertas</span>
+        <span class="card-id">A1</span>
+      </div>
+      <h3 class="card-title">Abanico de fierro desde $899, el calor ya no gana</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--foto">Foto</span>
+            <p class="img-desc">Abanico de pedestal con aspa metalica en primer plano, etiqueta $899 visible. Abanico de techo al fondo con etiqueta $1,599.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">Llevas semanas aguantando el calor? Para eso estamos. Abanico de pedestal con aspa metalica desde $899 y de techo por $1,599. Hoy mismo.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>El calor en Monterrey no pide permiso. Y seguir aguantandolo cuando la solucion esta a este precio ya no tiene ningun sentido.</p>
+            <p>En La Subasta Mueblerias tienes opciones para todos los presupuestos:</p>
+            <ul class="field-list">
+              <li>Abanico de pedestal con aspa metalica — desde $899</li>
+              <li>Abanico de techo — $1,599</li>
+            </ul>
+            <p>Aspa metalica porque dura. Techo porque enfria el cuarto completo sin ocupar espacio. El de pedestal no necesita instalacion, lo pones donde lo necesitas y listo. Tu decides cual te conviene, nosotros lo tenemos en existencia y te lo llevas el mismo dia.</p>
+            <p>Sin esperar, sin apartar, sin vuelta en falso. Pasa hoy a la sucursal mas cercana y sal con el problema resuelto.</p>
+            <p>Disponible en las 11 sucursales de la zona metropolitana.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Ver disponibilidad &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+            <div class="cta-row">
+              <span class="cta-label">Secundario</span>
+              <div class="cta-value">Visita tu sucursal &mdash; <span class="cta-note">enlazar seccion sucursales</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- A2 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--ofertas">Ofertas</span>
+        <span class="card-id">A2</span>
+      </div>
+      <h3 class="card-title">Clima lavado desde $3,999. Frio de verdad.</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--foto">Foto</span>
+            <p class="img-desc">Aires lavados en display con etiquetas de precio visibles al frente. Si hay varios modelos, mostrarlos en fila.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">El ventilador ya no alcanza. Si ya es momento de un clima de verdad, en La Subasta tienes aire lavado desde $3,999.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>Hay un momento en que el ventilador deja de ser suficiente. Ese momento ya llego y lo sabes.</p>
+            <p>En La Subasta Mueblerias tenemos aire lavado desde $3,999, una solucion real para cuartos, recamaras o espacios medianos donde el calor ya no da tregua. Sin instalacion complicada, sin marca unica, sin precio inflado.</p>
+            <p>Y si tu espacio necesita mas, tambien contamos con minisplit de 110, 220 e inverter en 1, 2 y 3 toneladas. Muchos modelos, muchas marcas, precios directos sin rodeos.</p>
+            <p>No tienes que saber de climas para comprar bien. Cuentanos el tamano del espacio y te orientamos sin compromiso. No te vendemos lo mas caro, te vendemos lo que realmente necesitas.</p>
+            <p>Consulta disponibilidad en las 11 sucursales de la zona metropolitana.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Asesorarme por WhatsApp &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+            <div class="cta-row">
+              <span class="cta-label">Secundario</span>
+              <div class="cta-value">Visita tu sucursal &mdash; <span class="cta-note">enlazar seccion sucursales</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- A3 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--tips">Tips del hogar</span>
+        <span class="card-id">A3</span>
+      </div>
+      <h3 class="card-title">Ventilador o minisplit? Esto te ayuda a decidir</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--diseno">Diseno</span>
+            <p class="img-desc">Dos columnas: icono de ventilador vs. icono de minisplit. Lista de puntos bajo cada uno. Paleta azul y blanco.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">No es cuestion de cual se ve mejor. Es cuestion de cuanto espacio tienes, cuanto lo usas y cuanto quieres gastar. Aqui el desglose rapido.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>Antes de comprar, esto es lo que necesitas saber.</p>
+            <span class="list-group-label">Elige ventilador si:</span>
+            <ul class="field-list">
+              <li>El cuarto es pequeno o mediano</li>
+              <li>Buscas la opcion mas economica</li>
+              <li>No necesitas frio extremo, solo circulacion de aire</li>
+              <li>No quieres instalacion ni gasto extra</li>
+            </ul>
+            <span class="list-group-label">Elige minisplit si:</span>
+            <ul class="field-list">
+              <li>El cuarto es grande o hay mucha gente</li>
+              <li>El calor es intenso y el ventilador ya no alcanza</li>
+              <li>Vas a usarlo muchas horas al dia</li>
+              <li>Quieres frio real y constante, no solo brisa</li>
+            </ul>
+            <p>En La Subasta tienes ambas opciones con precios directos. Ventiladores desde $899, minisplits en 110, 220 e inverter. Si llegas a la sucursal con dudas, nuestro equipo te ayuda a decidir sin presionarte. La idea es que te lleves lo que te va a resolver, no lo que cuesta mas.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Asesorarme gratis &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- A4 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--temporadas">Temporadas</span>
+        <span class="card-id">A4</span>
+      </div>
+      <h3 class="card-title">El calor no acabo. Ya te ventilaste?</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--diseno">Diseno</span>
+            <p class="img-desc">Fondo degradado de naranja a amarillo. Texto principal: "Monterrey todavia quema." Precio desde $899 destacado.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">Septiembre y el calor en Monterrey sigue igual. No esperes a que baje para ventilarte, los modelos se van y el precio no espera.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>En Monterrey el calor no se va en cuanto voltea el calendario. Septiembre sigue pegando fuerte y los meses de mayor demanda son exactamente los que mas rapido vacian los anaqueles.</p>
+            <p>Si todavia no resolviste la ventilacion de tu cuarto, tu sala o tu negocio, este es el ultimo tramo para hacerlo con calma, con existencia disponible y sin pagar mas por la urgencia.</p>
+            <ul class="field-list">
+              <li>Abanico de pedestal con aspa metalica — desde $899</li>
+              <li>Abanico de techo — $1,599</li>
+              <li>Aires lavados — desde $3,999</li>
+              <li>Minisplits 110, 220 e inverter — 1, 2 y 3 toneladas</li>
+            </ul>
+            <p>Lo que se va no regresa al mismo precio. Visita la sucursal mas cercana o escribenos para confirmar que el modelo que necesitas esta disponible antes de hacer el viaje.</p>
+            <p>11 sucursales en la zona metropolitana.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Ver disponibilidad &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+            <div class="cta-row">
+              <span class="cta-label">Secundario</span>
+              <div class="cta-value">Visita tu sucursal &mdash; <span class="cta-note">enlazar seccion sucursales</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- BLOQUE SEPTIEMBRE -->
+<section class="block block--septiembre">
+
+  <div class="block-header">
+    <p class="block-label">Bloque 2</p>
+    <h2 class="block-title">Spot Septiembre</h2>
+    <p class="block-tagline">"Ya basta, ya basta, ven a La Subasta. Las sillas que no se rompen."</p>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- S1 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--ofertas">Ofertas</span>
+        <span class="card-id">S1</span>
+      </div>
+      <h3 class="card-title">Comedor de fierro por $3,799. Mas aguantador.</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--foto">Foto</span>
+            <p class="img-desc">Comedor de 4 sillas de fierro armado en el showroom. Etiqueta $3,799 al frente. Encuadre que muestre el conjunto completo: mesa y las 4 sillas.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">Comedor de 4 sillas de fierro por $3,799. Mas aguantador que el del vecino. Lo dice el spot, lo confirma el producto.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>El comedor es de los muebles que mas castigo recibe en la casa. Desayunos, comidas, tareas, visitas, todo pasa ahi. Por eso en La Subasta apostamos por fierro: el material que no se dobla, no se tambalea y no te va a dar sorpresas a los dos anos de comprarlo.</p>
+            <p>Comedor 4 sillas de fierro — $3,799.</p>
+            <p>Precio directo, sin financiamiento disfrazado de oferta, sin letra chiquita. Lo que ves es lo que pagas y lo que pagas dura.</p>
+            <p>Si ya llevas tiempo con la mesa chueca o las sillas que chirrian, este es el momento de cambiar. Pasa a verlo, sientate, prueba la solidez con tus propias manos. Si te convence, hoy te lo llevas.</p>
+            <p>Disponible en las 11 sucursales de la zona metropolitana.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Ver en sucursal &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+            <div class="cta-row">
+              <span class="cta-label">Secundario</span>
+              <div class="cta-value">Visita tu sucursal &mdash; <span class="cta-note">enlazar seccion sucursales</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- S2 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--ofertas">Ofertas</span>
+        <span class="card-id">S2</span>
+      </div>
+      <h3 class="card-title">Lo invitas a cenar? Comedor de 6 en $4,499</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--foto">Foto</span>
+            <p class="img-desc">Comedor de 6 sillas armado, todas las sillas en su lugar. Etiqueta $4,499 visible. Encuadre que muestre el conjunto completo.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">Si ya lo invitas a cenar, que se sienten todos. Comedor de 6 sillas en $4,499. Para la familia grande o para el vecino que siempre llega.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>Hay mesas que solo aguantan cuatro. Y hay reuniones que siempre son seis. Para eso esta este comedor.</p>
+            <p>Comedor 6 sillas — $4,499.</p>
+            <p>Fierro que aguanta, diseno que no estorba, precio que no duele. Si tu familia es grande, si recibes seguido, o si simplemente ya estas harto de andar acarreando sillas de la recamara cada vez que llega alguien, esta es la opcion que tiene sentido.</p>
+            <p>La diferencia con el de 4 es minima en precio y maxima en comodidad. Por $700 mas resuelves el espacio de una vez por todas. Un gasto que se nota cada vez que se sientan a comer.</p>
+            <p>Pasa a verlo. Si esta disponible hoy, hoy te lo llevas.</p>
+            <p>11 sucursales en la zona metropolitana de Monterrey.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Ver disponibilidad &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+            <div class="cta-row">
+              <span class="cta-label">Secundario</span>
+              <div class="cta-value">Visita tu sucursal &mdash; <span class="cta-note">enlazar seccion sucursales</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- S3 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--tips">Tips del hogar</span>
+        <span class="card-id">S3</span>
+      </div>
+      <h3 class="card-title">Comedor de 4 o de 6? Asi decides sin error</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--diseno">Diseno</span>
+            <p class="img-desc">Dos columnas: mesa de 4 sillas vs. mesa de 6 sillas con iconos. Lista de puntos bajo cada una. Precio al pie de cada columna.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">No es solo cuestion del espacio. Es cuantas personas comen contigo normalmente. Dos preguntas y ya sabes cual te conviene.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>Antes de decidir, responde esto.</p>
+            <span class="list-group-label">Elige el de 4 sillas si:</span>
+            <ul class="field-list">
+              <li>Viven 3 o 4 personas en casa</li>
+              <li>El espacio del comedor es justo o mediano</li>
+              <li>Casi nunca recibes visitas a comer</li>
+              <li>Quieres la opcion mas compacta — $3,799</li>
+            </ul>
+            <span class="list-group-label">Elige el de 6 sillas si:</span>
+            <ul class="field-list">
+              <li>La familia es grande o siempre hay visitas</li>
+              <li>Tienes espacio suficiente en el area del comedor</li>
+              <li>Odias andar moviendo sillas cuando llega alguien extra</li>
+              <li>Quieres espacio sin que se sienta apretado — $4,499</li>
+            </ul>
+            <p>La diferencia es de $700. Pero la diferencia en comodidad el dia a dia es mucho mayor. Ambos son de fierro, ambos aguantan, ambos tienen precio directo sin sorpresas.</p>
+            <p>En La Subasta los tienes los dos. Pasa a sentarte en los dos antes de decidir, o escribenos y te contamos que hay disponible en tu sucursal mas cercana.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Preguntar por WhatsApp &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- S4 -->
+    <article class="card">
+      <div class="card-meta">
+        <span class="cat-pill cat-pill--temporadas">Temporadas</span>
+        <span class="card-id">S4</span>
+      </div>
+      <h3 class="card-title">El 15 se cena en casa. Ya tienes donde?</h3>
+      <div class="card-fields">
+
+        <div>
+          <p class="field-label">Imagen</p>
+          <div class="image-block">
+            <span class="img-badge img-badge--foto">Foto</span>
+            <p class="img-desc">Comedor de 6 sillas armado, bien iluminado, que transmita reunion familiar. Etiqueta $4,499 visible.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">Vista previa</p>
+          <p class="field-text">El 15 de septiembre se celebra en casa y la mesa tiene que alcanzar para todos. Comedor de 6 sillas en $4,499. Para que nadie se quede parado.</p>
+        </div>
+
+        <div>
+          <p class="field-label">Texto expandido</p>
+          <div class="field-text">
+            <p>Fiestas Patrias son de las pocas noches del ano donde toda la familia se junta sin excusa. Y si la mesa no alcanza, alguien siempre termina comiendo parado, en la cocina o con el plato en las rodillas.</p>
+            <p>Este septiembre en La Subasta tienes el comedor que resuelve eso de una vez:</p>
+            <ul class="field-list">
+              <li>Comedor 4 sillas de fierro — $3,799</li>
+              <li>Comedor 6 sillas — $4,499</li>
+            </ul>
+            <p>Fierro que aguanta la reunion, los codos, los ninos y las sillas que se recorren. Sin que se doble, sin que rechine, sin sorpresas al segundo ano.</p>
+            <p>Si lo compras esta semana, llega a tiempo para el 15. No lo dejes para ultimo momento porque el inventario se mueve rapido en estas fechas. Pasa a verlo o escribenos para confirmar disponibilidad en tu sucursal.</p>
+            <p>11 sucursales en la zona metropolitana de Monterrey.</p>
+          </div>
+        </div>
+
+        <div class="field-divider"></div>
+
+        <div>
+          <p class="field-label">CTA</p>
+          <div class="cta-block">
+            <div class="cta-row">
+              <span class="cta-label">Principal</span>
+              <div class="cta-value">Quiero el mio antes del 15 &mdash; <a href="https://wa.me/528125861876">wa.me/528125861876</a></div>
+            </div>
+            <div class="cta-row">
+              <span class="cta-label">Secundario</span>
+              <div class="cta-value">Visita tu sucursal &mdash; <span class="cta-note">enlazar seccion sucursales</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+</section>
