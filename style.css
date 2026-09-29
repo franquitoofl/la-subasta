@@ -450,6 +450,20 @@ ul {
     margin-top: 22px;
 }
 
+.novedad-modal .promocion-messenger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    background: #0866ff;
+    color: #fff;
+}
+
+.novedad-modal .promocion-messenger:hover {
+    background: #0758d6;
+    color: #fff;
+}
+
 @media (max-width: 700px) {
     .novedad-modal {
         width: min(94vw, 520px);
